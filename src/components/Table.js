@@ -1,7 +1,26 @@
 import React from 'react'
 import './Table.css'
 
-var rows = [];
+var rows = [{
+    name: 'The Four Horsemen',
+    location: 'Brooklyn, NYC',
+    recipe: 'Pork bahn mi, chicken liver mousse, pickled daikon, cilantro, anchovy',
+  },
+  {
+    name: '108',
+    location: 'Copenhagen, Denmark',
+    recipe: 'Glazed pork chop, berries, anchovy, spices',
+  }
+];
+
+function renderRow(row) {
+  return (
+    <tr>
+      <td>{row.name}<br />{row.location}</td>
+      <td>{row.recipe}</td>
+    </tr>
+  );
+}
 
 function Table() {
     return (
@@ -14,10 +33,7 @@ function Table() {
                         <th >Dish</th>
                     </tr>
                 </thead>
-                <tr>
-            
-            <td>{rows}</td>
-                </tr>
+                {rows.map (item => renderRow(item))}
         </table>
       </div>
     );

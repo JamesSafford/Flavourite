@@ -2,6 +2,10 @@ import React from 'react'
 import Table from '../components/Table'
 import { Link } from 'react-router-dom';
 
+
+const results = [
+]
+
 function ResultsPage() {
   return (
     <div className="ResultPage">
@@ -16,4 +20,3 @@ function ResultsPage() {
 };
 
 export default ResultsPage;
-;
