@@ -1,18 +1,6 @@
 import React from 'react'
 import './Table.css'
 
-var rows = [{
-    name: 'The Four Horsemen',
-    location: 'Brooklyn, NYC',
-    recipe: 'Pork bahn mi, chicken liver mousse, pickled daikon, cilantro, anchovy',
-  },
-  {
-    name: '108',
-    location: 'Copenhagen, Denmark',
-    recipe: 'Glazed pork chop, berries, anchovy, spices',
-  }
-];
-
 function renderRow(row) {
   return (
     <tr>
@@ -22,7 +10,7 @@ function renderRow(row) {
   );
 }
 
-function Table() {
+function Table(props) {
     return (
       <div  class="topnav">
           
@@ -33,7 +21,7 @@ function Table() {
                         <th >Dish</th>
                     </tr>
                 </thead>
-                {rows.map (item => renderRow(item))}
+                {props.rows.map (item => renderRow(item))}
         </table>
       </div>
     );
