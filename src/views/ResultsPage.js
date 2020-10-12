@@ -2,20 +2,11 @@ import React from 'react'
 import Table from '../components/Table'
 import { Link } from 'react-router-dom';
 
-
-doSomething({ rows: results }, 'whatever', 34)
-
-function doSomething(first, second, third) {
-  console.log(second);
-
-}
-
-
 function ResultsPage() {
   const results = [
     {
       name: 'The Four Horsemen',
-      location: '',
+      location: 'Brooklyn, NYC',
       recipe: 'Pork bahn mi, chicken liver mousse, pickled daikon, cilantro, anchovy',
     },
 
@@ -39,13 +30,3 @@ function ResultsPage() {
 };
 
 export default ResultsPage;
-
-
-3
-
-'hello',
-
-((3 * 2) / 5)
-
-
-
