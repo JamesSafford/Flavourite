@@ -1,19 +1,10 @@
 import React from 'react'
 import './Table.css'
 
-function renderRow(row) {
-  return (
-    <tr>
-      <td>{row.name}<br />{row.location}</td>
-      <td>{row.recipe}</td>
-    </tr>
-  );
-}
-
 function Table(props) {
     return (
       <div  class="topnav">
-          
+
         <table className="Table">
                 <thead>
                     <tr>
@@ -21,7 +12,12 @@ function Table(props) {
                         <th >Dish</th>
                     </tr>
                 </thead>
-                {props.rows.map (item => renderRow(item))}
+                {props.rows.map (row => (
+                  <tr>
+                    <td>{row.name}<br />{row.location}</td>
+                    <td>{row.recipe}</td>
+                  </tr>
+                ))}
         </table>
       </div>
     );

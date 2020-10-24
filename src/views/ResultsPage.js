@@ -1,30 +1,44 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Table from '../components/Table'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+
+async function fetchResults() {
+  const response = await fetch('http://localhost:3001/api/results')
+  if (!response.ok) {
+    throw new Error('Failed to load results');
+  }
+  const results = await response.json();
+  return results;
+}
 
 function ResultsPage() {
-  const results = [
-    {
-      name: 'The Four Horsemen',
-      location: 'Brooklyn, NYC',
-      recipe: 'Pork bahn mi, chicken liver mousse, pickled daikon, cilantro, anchovy',
-    },
+  const [error, setError] = useState();
+  const [results, setResults] = useState();
+  useEffect(() => {
+    showResults();
 
-    {
-      name: '108',
-      location: 'Copenhagen, Denmark',
-      recipe: 'Glazed pork chop, berries, anchovy, spices',
+    async function showResults() {
+      try {
+        const results = await fetchResults();
+        setResults(results);
+      } catch (e) {
+        setError(e);
+      }
     }
-  ]
+  }, []);
 
   return (
     <div className="ResultPage">
       <Link to="search">
-        <button className="button-primary" type="button"> 
+        <button className="button-primary" type="button">
         Start over
         </button>
       </Link>
-      <Table rows={results} label="hi"/>
+      {results
+        ? <Table rows={results} label="hi"/>
+        : error
+        ? `Could not retrieve recipes: ${error.message}`
+        : 'Loading...'}
     </div>
   )
 };
