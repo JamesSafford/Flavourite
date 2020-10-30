@@ -10,9 +10,8 @@ function SearchPage() {
       <input type="text" placeholder="Search..." className="p"></input>
       <a>Ingredient Two</a>
       <input type="text" placeholder="Search..." className="p"></input>
-      <Link to="results">
-      <button class="favorite styled" type="button">
-      Search</button>
+      <Link to={`/results/${SearchPage.search}`}>
+      <button class="favorite styled" type="button">Search</button>
       </Link> 
     </div>
   );

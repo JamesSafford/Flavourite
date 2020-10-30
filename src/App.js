@@ -15,7 +15,8 @@ function App() {
             <Switch>
                 <Route path="/" exact component={LandingPage} />
                 <Route path="/search" component={SearchPage} />
-                <Route path="/results" component={ResultsPage} />
+                <Route path="/results" exact component={ResultsPage} />
+                <Route path="/results/:ingredients" component={ResultsPage} />
             </Switch>
         </div>
         </Router>
