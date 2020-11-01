@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Table from '../components/Table'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import { useCounter } from '../hooks/useCounter';
 
-async function fetchResults() {
-  const response = await fetch('http://localhost:3001/api/results')
+async function fetchResults(ingredient1, ingredient2) {
+  const response = await fetch(`http://localhost:3001/api/results?ingredient1=${ingredient1}&ingredient2=${ingredient2}`)
   if (!response.ok) {
     throw new Error('Failed to load results');
   }
@@ -14,18 +15,24 @@ async function fetchResults() {
 function ResultsPage() {
   const [error, setError] = useState();
   const [results, setResults] = useState();
+  const [refetchCounter, incrementRefetchCounter] = useCounter();
+
+  const location = useLocation();
+
+  const { ingredient1, ingredient2 } = location.state;
+
   useEffect(() => {
     showResults();
 
     async function showResults() {
       try {
-        const results = await fetchResults();
+        const results = await fetchResults(ingredient1, ingredient2);
         setResults(results);
       } catch (e) {
         setError(e);
       }
     }
-  }, []);
+  }, [ingredient1, ingredient2, refetchCounter]);
 
   return (
     <div className="ResultPage">
@@ -34,6 +41,9 @@ function ResultsPage() {
         Start over
         </button>
       </Link>
+      <button className="button-primary" type="button" onClick={incrementRefetchCounter}>
+        Reload results
+      </button>
       {results
         ? <Table rows={results} label="hi"/>
         : error
