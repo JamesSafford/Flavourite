@@ -1,0 +1,16 @@
+.Button {
+    border: 1px solid var(--font-colour-body);
+    background-color: transparent;
+    font-size: var(--font-size-small);
+    text-transform: uppercase;
+    font-family: inherit;
+    padding-left: 22px;
+    padding-right: 22px;
+    height: 55px;
+    border-radius: 0%;
+}
+
+.Button:hover {
+    background-color: var(--background-hover);
+    cursor: pointer;
+}

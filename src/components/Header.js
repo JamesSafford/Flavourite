@@ -1,13 +1,14 @@
 import React from 'react';
 import './Header.css';
+import Search from './Search';
 
 function Header() {
     return (
-      <header className="App-header">
-        {/*<img src={logo} className="App-logo" alt="logo" />}*/}
-        <p>
-          Ingredient checker
-        </p>
+      <header className="Header-header">
+        <h1 className="Header-logo">Flavourite</h1>
+        <div className="Header-search">
+        < Search />
+        </div>
       </header>
     );
 }

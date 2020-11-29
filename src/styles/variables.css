@@ -1,0 +1,9 @@
+* {
+  --background:#FFFFFF;
+  --background-hover: rgba(196, 196, 196, 0.3);
+
+  --font-colour-body: #1E252C;
+
+  --font-family-body: 'Eczar', 'Georgia', serif;
+  --font-size-small: 14px;
+}

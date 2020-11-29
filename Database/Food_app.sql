@@ -43,6 +43,7 @@ INSERT INTO "search_terms" ("ingredient_id", "synonym") VALUES
 ('2', 'long white radish'),
 ('2', 'true daikon'),
 ('3', 'damson'),
+('3', 'berries')
 ('3', 'canistel'),
 ('3', 'capulin'),
 ('3', 'checkerberry'),

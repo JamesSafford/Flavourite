@@ -1,0 +1,33 @@
+.Search {
+    width: 680px;
+    display: flex;
+}
+
+.Search-bar {
+    flex: auto;
+    margin-right: 22px;
+}
+
+.Search-button {
+    flex: none;
+}
+
+
+div.Search-bar__control {
+    border-bottom: 1px solid var(--font-colour-body);
+    height: 55px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0
+}
+
+div.Search-bar__dropdown-indicator {
+    color: inherit;
+
+}
+
+span.Search-bar__indicator-separator {
+    background-color: inherit;
+}
+
