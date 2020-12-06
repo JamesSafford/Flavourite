@@ -22,9 +22,11 @@ function ResultsPage() {
   const { ingredient1, ingredient2 } = location.state;
 
   useEffect(() => {
-    showResults();
+    setResults(undefined);
+    setError(undefined);
+    loadResults();
 
-    async function showResults() {
+    async function loadResults() {
       try {
         const results = await fetchResults(ingredient1, ingredient2);
         setResults(results);

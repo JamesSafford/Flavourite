@@ -16,4 +16,21 @@ app.get('/results', async (req, res) => {
   }
 });
 
+app.get('/search-terms', async (req, res) => {
+  try {
+    // const filteredRecipes = await filterRecipes({ ingredient1, ingredient2 });
+    // res.json(filteredRecipes)
+    res.json([
+      {value: 'pork', label: 'Pork'},
+      {value: 'berries', label: 'Berries'},
+      {value: 'daikon', label: 'Daikon'}
+    ])
+  } catch (error) {
+    res.status(500).json({
+      status: 'error',
+      message: error.message,
+    })
+  }
+});
+
 export default app;

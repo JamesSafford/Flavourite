@@ -31,3 +31,13 @@ span.Search-bar__indicator-separator {
     background-color: inherit;
 }
 
+div.Search-bar__control--is-focused, div.Search-bar__control--is-focused:hover {
+    border-color: transparent;
+    box-shadow: none;
+    outline: 1px solid var(--border-colour-focused) !important;
+}
+
+div.Search-bar__option--is-focused {
+    background-color: var(--background-hover);
+}
+

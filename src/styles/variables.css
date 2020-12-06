@@ -4,6 +4,8 @@
 
   --font-colour-body: #1E252C;
 
+  --border-colour-focused: var(--font-colour-body);
+
   --font-family-body: 'Eczar', 'Georgia', serif;
   --font-size-small: 14px;
 }
