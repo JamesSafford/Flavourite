@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Table from '../components/Table'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { useCounter } from '../hooks/useCounter';
+import { SearchContext } from '../context';
 
 async function fetchResults(ingredient1, ingredient2) {
   const response = await fetch(`http://localhost:3001/api/results?ingredient1=${ingredient1}&ingredient2=${ingredient2}`)
@@ -18,6 +19,8 @@ function ResultsPage() {
   const [refetchCounter, incrementRefetchCounter] = useCounter();
 
   const location = useLocation();
+  const searchContext = useContext(SearchContext);
+  const { clear: clearSearch } = searchContext;
 
   const { ingredient1, ingredient2 } = location.state;
 
@@ -30,19 +33,15 @@ function ResultsPage() {
       try {
         const results = await fetchResults(ingredient1, ingredient2);
         setResults(results);
+        clearSearch();
       } catch (e) {
         setError(e);
       }
     }
-  }, [ingredient1, ingredient2, refetchCounter]);
+  }, [ingredient1, ingredient2, refetchCounter, clearSearch]);
 
   return (
     <div className="ResultPage">
-      <Link to="search">
-        <button className="button-primary" type="button">
-        Start over
-        </button>
-      </Link>
       <button className="button-primary" type="button" onClick={incrementRefetchCounter}>
         Reload results
       </button>

@@ -1,8 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Select from 'react-select';
 import Button from './Button';
 import { useCounter } from '../hooks/useCounter';
+import { SearchContext } from '../context';
 import './Search.css';
 
 async function fetchOptions() {
@@ -19,6 +20,7 @@ function Search(){
   const [selectedItems, setSelectedItems] = useState([]);
   const [refetchCounter, incrementRefetchCounter] = useCounter();
   const history = useHistory();
+  const searchContext = useContext(SearchContext);
 
   const button = useRef();
 
@@ -27,7 +29,8 @@ function Search(){
 
     async function loadSearchTerms() {
       try {
-        const options = await fetchOptions(refetchCounter);
+        const searchTerms = await fetchOptions(refetchCounter);
+        const options = searchTerms.map(({ id, label }) => ({ value: id, label }));
         setOptions(options);
       } catch {
         incrementRefetchCounter();
@@ -56,6 +59,12 @@ function Search(){
     }
   }, [buttonElement]);
 
+  const clearResults = useCallback(() => {
+    onChangeSelection(null);
+  }, [onChangeSelection]);
+
+  searchContext.clear = clearResults;
+
     return (
       <form className="Search" onSubmit={onSubmit}>
         <Select
@@ -64,6 +73,7 @@ function Search(){
           placeholder="Type ingredients here..."
           isMulti
           options={selectedItems.length < 2 ? options : undefined}
+          value={selectedItems}
           onChange={onChangeSelection}
         />
         <Button
