@@ -21,9 +21,10 @@ app.get('/search-terms', async (req, res) => {
     // const filteredRecipes = await filterRecipes({ ingredient1, ingredient2 });
     // res.json(filteredRecipes)
     res.json([
-      {value: 'pork', label: 'Pork'},
-      {value: 'berries', label: 'Berries'},
-      {value: 'daikon', label: 'Daikon'}
+      {value: 1, label: 'Pork'},
+      {value: 3, label: 'Berries'},
+      {value: 2, label: 'Daikon'},
+      {value: 2, label: 'Mooli'},
     ])
   } catch (error) {
     res.status(500).json({

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Select from 'react-select';
 import Button from './Button';
@@ -19,6 +19,8 @@ function Search(){
   const [selectedItems, setSelectedItems] = useState([]);
   const [refetchCounter, incrementRefetchCounter] = useCounter();
   const history = useHistory();
+
+  const button = useRef();
 
   useEffect(() => {
     loadSearchTerms();
@@ -42,9 +44,17 @@ function Search(){
     });
   }, [history, selectedItems]);
 
-  const onChangeSelection = useCallback((selectedItems) => {
-    setSelectedItems(selectedItems);
-  }, []);
+  const buttonElement = button.current;  
+  const onChangeSelection = useCallback((items) => {
+    const selection = (items || []).slice(0, 2);
+    setSelectedItems(selection);
+    if (selection.length === 2) {
+      if (buttonElement) {
+        buttonElement.disabled = false;
+        buttonElement.focus();
+      }
+    }
+  }, [buttonElement]);
 
     return (
       <form className="Search" onSubmit={onSubmit}>
@@ -53,10 +63,15 @@ function Search(){
           classNamePrefix="Search-bar"
           placeholder="Type ingredients here..."
           isMulti
-          options={options}
+          options={selectedItems.length < 2 ? options : undefined}
           onChange={onChangeSelection}
         />
-        <Button className="Search-button" type="submit">Search</Button>
+        <Button
+          ref={button}
+          className="Search-button"
+          type="submit"
+          disabled={selectedItems.length < 2}
+        >Search</Button>
       </form>
     )
 

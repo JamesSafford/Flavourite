@@ -16,7 +16,6 @@ INSERT INTO "ingredients" ("id", "ingredient") VALUES
 INSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id") VALUES
 ('1', '1'),
 ('1', '2'),
-('1', '3'),
 ('2', '1'),
 ('2', '3');
 

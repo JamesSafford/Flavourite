@@ -1,0 +1,20 @@
+.HeroText {
+    margin: 0;
+    white-space: nowrap;
+    font-size: var(--font-size-hero);
+    height: 85%;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--background);
+    background-image: url('../styles/Images/Plate.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    color: var(--font-colour-body);
+    font-weight: var(--font-weight);
+
+}

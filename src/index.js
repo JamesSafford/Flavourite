@@ -8,7 +8,7 @@ import * as serviceWorker from './serviceWorker';
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('Bob')
+  document.getElementById('main')
 );
 
 // If you want your app to work offline and load faster, you can change

@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import './Button.css';
 
-function Button(props) {
+const Button = forwardRef(function Button(props, ref) {
+  const { className, ...passthroughProps } = props;
   return (
-    <button className={`Button ${props.className || ''}`} type="submit">
+    <button ref={ref} className={`Button ${className || ''}`} {...passthroughProps}>
       {props.children}
     </button>
   );
-}
+})
 
 
 export default Button;

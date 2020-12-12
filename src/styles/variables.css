@@ -7,5 +7,8 @@
   --border-colour-focused: var(--font-colour-body);
 
   --font-family-body: 'Eczar', 'Georgia', serif;
-  --font-size-small: 14px;
+  --font-size-small: 16px;
+  --font-size-hero: 24px;
+  --font-weight: medium;
+
 }

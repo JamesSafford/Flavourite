@@ -1,9 +1,17 @@
 import React from 'react'
+import { BeatLoader, BarLoader } from 'react-spinners'
 import './EntryForm.css'
 
 
 function EntryForm() {
-    return (
+  return (
+    <div className='Spinner'>
+      <BeatLoader />
+      <BarLoader />
+    </div>
+  )
+
+   /* return (
       <div class="topnav" className="EntryForm">
       <a>Ingredient One</a>
       <input type="text" placeholder="Search..." class="p"></input>
@@ -13,7 +21,7 @@ function EntryForm() {
         type="button">
       Search</button> 
       </div>
-    );
+    ); */
 }
 
 export default EntryForm;

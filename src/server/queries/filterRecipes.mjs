@@ -17,13 +17,8 @@ on recipes.id = recipe_ingredient2.recipe_id
 inner join ingredients as ingredient2
 on ingredient2.id = recipe_ingredient2.ingredient_id
 
-inner join search_terms as search_terms1
-on search_terms1.ingredient_id = ingredient1.id
-inner join search_terms as search_terms2
-on search_terms2.ingredient_id = ingredient2.id
-
-where search_terms1.synonym = $ingredient1 collate nocase
-and search_terms2.synonym = $ingredient2 collate nocase
+where ingredient1.id = $ingredient1
+and ingredient2.id = $ingredient2
 group by recipes.id;`
 
 export default async function filterRecipes({

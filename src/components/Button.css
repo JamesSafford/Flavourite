@@ -10,7 +10,12 @@
     border-radius: 0%;
 }
 
-.Button:hover {
+.Button:disabled {
+    opacity: 0.5;
+}
+
+.Button:hover:not(:disabled) {
     background-color: var(--background-hover);
     cursor: pointer;
+    transform: translateY(1px);
 }
