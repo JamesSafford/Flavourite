@@ -11,7 +11,10 @@
 .Search-button {
     flex: none;
 }
+.Search-button:focus {
+    outline: 1px solid var(--border-colour-focused) !important;
 
+}
 
 div.Search-bar__control {
     border-bottom: 1px solid var(--font-colour-body);
@@ -24,7 +27,6 @@ div.Search-bar__control {
 
 div.Search-bar__dropdown-indicator {
     color: inherit;
-
 }
 
 span.Search-bar__indicator-separator {
