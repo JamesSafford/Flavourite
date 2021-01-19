@@ -14,7 +14,7 @@ function Table(props) {
                 </thead>
                 {props.rows.map (row => (
                   <tr>
-                    <td>{row.name}<br />{row.location}</td>
+                    <td>{row.restaurant}<br />{row.location}</td>
                     <td>{row.recipe}</td>
                   </tr>
                 ))}

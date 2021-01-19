@@ -15,9 +15,9 @@ INNER JOIN recipe_ingredient AS recipe_ingredient2 ON recipe.recipe_id = recipe_
 INNER JOIN ingredient AS ingredient2 ON ingredient2.ingredient_id = recipe_ingredient2.ingredient_id
 INNER JOIN search_term AS search_term1 ON search_term1.ingredient_id = ingredient1.ingredient_id
 INNER JOIN search_term AS search_term2 ON search_term2.ingredient_id = ingredient2.ingredient_id
-where ingredient1.id = $ingredient1
-and ingredient2.id = $ingredient2
-group by recipes.id;`
+where ingredient1.ingredient_id = $ingredient1
+or ingredient2.ingredient_id = $ingredient2
+group by recipe.recipe_id;`
 
 export default async function filterRecipes({
   ingredient1,

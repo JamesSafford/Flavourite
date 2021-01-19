@@ -37,6 +37,15 @@ div.Search-bar__control--is-focused, div.Search-bar__control--is-focused:hover {
     border-color: transparent;
     box-shadow: none;
     outline: 1px solid var(--border-colour-focused) !important;
+    
+}
+div.Search-bar__control--menu-is-open {
+    border-radius: 0 !important;
+}
+
+div.Search-bar__Input {
+    --font-family-body: 'Eczar', 'Georgia', serif !important;
+    ;
 }
 
 div.Search-bar__option--is-focused {
