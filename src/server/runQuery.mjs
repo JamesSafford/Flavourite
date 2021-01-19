@@ -6,7 +6,7 @@ const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const db = new sqlite3.Database(
-  path.join(__dirname, '../../Database/recipes.db')
+  path.join(__dirname, '../../Database/Flavourite.sqlite3')
 );
 
 export default function runQuery(query, params) {

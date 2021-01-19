@@ -42,9 +42,9 @@ function ResultsPage() {
 
   return (
     <div className="ResultPage">
-      <button className="button-primary" type="button" onClick={incrementRefetchCounter}>
+     <button className="button-primary" type="button" onClick={incrementRefetchCounter}>
         Reload results
-      </button>
+    </button> 
       {results
         ? <Table rows={results} label="hi"/>
         : error

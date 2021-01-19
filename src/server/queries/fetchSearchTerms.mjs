@@ -2,7 +2,7 @@ import runQuery from '../runQuery.mjs';
 
 const query = `
 select ingredient_id as id, synonym as label
-from search_terms
+from search_term
 `;
 
 export default async function fetchSearchTerms() {

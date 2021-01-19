@@ -1,22 +1,20 @@
 import runQuery from '../runQuery.mjs';
 
 const query = 
-`select recipes.id, name, recipe, location
-from recipes
-
-inner join restaurants
-on recipes.restaurant_id = restaurants.id
-
-inner join recipe_ingredients as recipe_ingredient1
-on recipes.id = recipe_ingredient1.recipe_id
-inner join ingredients as ingredient1
-on ingredient1.id = recipe_ingredient1.ingredient_id
-
-inner join recipe_ingredients as recipe_ingredient2
-on recipes.id = recipe_ingredient2.recipe_id
-inner join ingredients as ingredient2
-on ingredient2.id = recipe_ingredient2.ingredient_id
-
+`SELECT
+recipe.recipe_id,
+restaurant,
+recipe,
+"location"
+FROM
+recipe
+INNER JOIN restaurant ON recipe.restaurant_id = restaurant.restaurant_id
+INNER JOIN recipe_ingredient AS recipe_ingredient1 ON recipe.recipe_id = recipe_ingredient1.recipe_id
+INNER JOIN ingredient AS ingredient1 ON ingredient1.ingredient_id = recipe_ingredient1.ingredient_id
+INNER JOIN recipe_ingredient AS recipe_ingredient2 ON recipe.recipe_id = recipe_ingredient2.recipe_id
+INNER JOIN ingredient AS ingredient2 ON ingredient2.ingredient_id = recipe_ingredient2.ingredient_id
+INNER JOIN search_term AS search_term1 ON search_term1.ingredient_id = ingredient1.ingredient_id
+INNER JOIN search_term AS search_term2 ON search_term2.ingredient_id = ingredient2.ingredient_id
 where ingredient1.id = $ingredient1
 and ingredient2.id = $ingredient2
 group by recipes.id;`
