@@ -16,13 +16,12 @@
 
 }
 
-div.Search-bar__control {
+div.Search-bar__control, div.Search-bar__control--menu-is-open {
     border-bottom: 1px solid var(--font-colour-body);
     height: 55px;
     border-top: none;
     border-left: none;
     border-right: none;
-    border-radius: 0
 }
 
 div.Search-bar__dropdown-indicator {
@@ -39,16 +38,21 @@ div.Search-bar__control--is-focused, div.Search-bar__control--is-focused:hover {
     outline: 1px solid var(--border-colour-focused) !important;
     
 }
-div.Search-bar__control--menu-is-open {
-    border-radius: 0 !important;
-}
 
-div.Search-bar__Input {
-    --font-family-body: 'Eczar', 'Georgia', serif !important;
-    ;
+input#react-select-3-input{
+    font-family: var(--font-family-body) !important;
 }
 
 div.Search-bar__option--is-focused {
     background-color: var(--background-hover);
+}
+
+div.Search-bar__menu.css-26l3qy-menu {
+    border-radius: 0;
+
+}
+
+button.Button.Search-button {
+    text-transform: none;
 }
 
