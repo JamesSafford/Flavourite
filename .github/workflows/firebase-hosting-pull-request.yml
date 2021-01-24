@@ -15,5 +15,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FLAVOURITE_CDD53 }}'
           projectId: flavourite-cdd53
         env:
-          REACT_APP_API_URL: https://powerful-beyond-88941.herokuapp.com/api
           FIREBASE_CLI_PREVIEWS: hostingchannels
