@@ -8,4 +8,4 @@ app.use(cors())
 
 app.use('/api', api);
 
-app.listen(3001);
+app.listen(process.env.PORT || 3001);

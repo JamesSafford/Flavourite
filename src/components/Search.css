@@ -12,8 +12,7 @@
     flex: none;
 }
 .Search-button:focus {
-    outline: 1px solid var(--border-colour-focused) !important;
-
+    outline: 10% solid var(--border-colour-focused) !important;
 }
 
 div.Search-bar__control, div.Search-bar__control--menu-is-open {
