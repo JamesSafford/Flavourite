@@ -21,7 +21,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "REACT_APP_API_URL=https://powerful-beyond-88941.herokuapp.com/api react-scripts build",
+    "build": "REACT_APP_API_URL=https://powerful-beyond-88941.herokuapp.com/api npx react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "nodemon src/server/index.mjs",
