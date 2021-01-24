@@ -41,18 +41,18 @@ function Search(){
 
   const onSubmit = useCallback((event) => {
     event.preventDefault();
-    const [ingredient1, ingredient2] = selectedItems;
+  const [ingredient1, /* ingredient2 */] = selectedItems;
     history.push('/results', {
       ingredient1: ingredient1.value,
-      ingredient2: ingredient2.value,
+      /*ingredient2: ingredient2.value,*/
     });
   }, [history, selectedItems]);
 
   const buttonElement = button.current;
   const onChangeSelection = useCallback((items) => {
-    const selection = (items || []).slice(0, 2);
+    const selection = (items || []).slice(0, 1);
     setSelectedItems(selection);
-    if (selection.length === 2) {
+    if (selection.length === /*2*/ 1) {
       if (buttonElement) {
         buttonElement.disabled = false;
         buttonElement.focus();
@@ -71,9 +71,9 @@ function Search(){
         <Select
           className="Search-bar"
           classNamePrefix="Search-bar"
-          placeholder="Type ingredients here..."
+          placeholder="Type ingredient here..."
           isMulti
-          options={selectedItems.length < 2 ? options : undefined}
+          options={selectedItems.length < 1 /*2*/ ? options : undefined}
           value={selectedItems}
           onChange={onChangeSelection}
         />

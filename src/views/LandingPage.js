@@ -5,7 +5,7 @@ import './LandingPage.css';
 function LandingPage() {
   return (
     <div>
-    <p className="HeroText">Got 2 ingredients you want to use up? Here’s how the best chefs would use them...</p>
+    <p className="HeroText">Got an ingredient you want to use up? Here’s how the best chefs would use them...</p>
     </div>
     )
 

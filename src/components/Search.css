@@ -35,7 +35,6 @@ div.Search-bar__control--is-focused, div.Search-bar__control--is-focused:hover {
     border-color: transparent;
     box-shadow: none;
     outline: 1px solid var(--border-colour-focused) !important;
-    
 }
 
 input#react-select-3-input{
@@ -48,7 +47,10 @@ div.Search-bar__option--is-focused {
 
 div.Search-bar__menu.css-26l3qy-menu {
     border-radius: 0;
+}
 
+div.Search-bar__control.css-yk16xz-control {
+    border-radius: 0;
 }
 
 button.Button.Search-button {
