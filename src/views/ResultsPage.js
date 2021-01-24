@@ -37,9 +37,10 @@ function ResultsPage() {
         clearSearch();
       } catch (e) {
         setError(e);
+        if (refetchCounter < 5) incrementRefetchCounter();
       }
     }
-  }, [ingredient1, ingredient2, refetchCounter, clearSearch]);
+  }, [ingredient1, ingredient2, refetchCounter, incrementRefetchCounter, clearSearch]);
 
   return (
     <div className="ResultPage">

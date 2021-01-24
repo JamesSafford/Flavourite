@@ -34,7 +34,7 @@ function Search(){
         const options = searchTerms.map(({ id, label }) => ({ value: id, label }));
         setOptions(options);
       } catch {
-        incrementRefetchCounter();
+        if (refetchCounter < 5) incrementRefetchCounter();
       }
     }
   }, [refetchCounter, incrementRefetchCounter]);
