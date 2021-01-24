@@ -21,10 +21,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "REACT_APP_API_URL=https://powerful-beyond-88941.herokuapp.com/api react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "nodemon src/server/index.mjs"
+    "server": "nodemon src/server/index.mjs",
+    "deploy": "git push origin master && git push heroku master"
   },
   "eslintConfig": {
     "extends": "react-app"
