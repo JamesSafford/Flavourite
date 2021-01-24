@@ -3,9 +3,10 @@ import Table from '../components/Table'
 import { useLocation } from 'react-router-dom'
 import { useCounter } from '../hooks/useCounter';
 import { SearchContext } from '../context';
+import fetchApi from '../utils/fetchApi';
 
 async function fetchResults(ingredient1, ingredient2) {
-  const response = await fetch(`http://localhost:3001/api/results?ingredient1=${ingredient1}&ingredient2=${ingredient2}`)
+  const response = await fetchApi(`/results?ingredient1=${ingredient1}&ingredient2=${ingredient2}`)
   if (!response.ok) {
     throw new Error('Failed to load results');
   }

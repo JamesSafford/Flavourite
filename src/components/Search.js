@@ -4,10 +4,11 @@ import Select from 'react-select';
 import Button from './Button';
 import { useCounter } from '../hooks/useCounter';
 import { SearchContext } from '../context';
+import fetchApi from '../utils/fetchApi';
 import './Search.css';
 
 async function fetchOptions() {
-  const response = await fetch(`http://localhost:3001/api/search-terms/`)
+  const response = await fetchApi(`/search-terms`)
   if (!response.ok) {
     throw new Error('Failed to load results');
   }
@@ -47,7 +48,7 @@ function Search(){
     });
   }, [history, selectedItems]);
 
-  const buttonElement = button.current;  
+  const buttonElement = button.current;
   const onChangeSelection = useCallback((items) => {
     const selection = (items || []).slice(0, 2);
     setSelectedItems(selection);
